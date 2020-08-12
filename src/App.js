@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import { hot } from 'react-hot-loader';
+import NewSuperHero from ''
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const AppContainer = styled.div`
+  margin: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222222;
+  width: 100vw;
+  height: 100vh;
+`;
 
-export default App;
+const App = () => (
+  <AppContainer>
+    <NewSuperHero />
+  </AppContainer>
+)
+
+export default hot(module)(App);
