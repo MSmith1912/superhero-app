@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import NewSuperHeroForm from '../components/NewSuperHeroForm';
-import SuperHeroItem from '../components/NewSuperHeroItem';
-import { getSuperHeroesLoading, getActiveHeroes, getInactiveHeroes } from './selectors';
-import { loadHeroes, removeTodoRequest, markTodoAsCmpletedRequest } from './thunks';
+import SuperHeroItem from '../components/SuperHeroItem';
+import { getSuperHeroesLoading, getActiveHeroes, getInactiveHeroes } from '../selectors';
+import { loadHeroes, removeHeroRequest } from '../thunks';
 
 const ListWrapper = styled.div`
     max-width: 700px;
@@ -19,6 +18,7 @@ const SuperHeroList = ({ activeHeroes, inactiveHeroes, onRemovePressed,
         const loadingMessage = <div>Loading SuperHeroes...</div>;
         const content = (
             <ListWrapper>
+                <h2>Super Hero List</h2>
                 <h3>Active</h3>
                 {activeHeroes.map(hero => <SuperHeroItem
                     hero={hero}
@@ -43,7 +43,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     startLoadingSuperHeroes: () => dispatch(loadHeroes()),
-    onRemovePressed: id => dispatch(removeTodoRequest(id)),
+    onRemovePressed: id => dispatch(removeHeroRequest(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SuperHeroList);

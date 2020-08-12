@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { hot } from 'react-hot-loader';
-import NewSuperHero from ''
+import SuperHeroList from './components/SuperHeroList';
 
 const AppContainer = styled.div`
   margin: 1rem;
@@ -13,7 +13,7 @@ const AppContainer = styled.div`
 
 const App = () => (
   <AppContainer>
-    <NewSuperHero />
+    <SuperHeroList />
   </AppContainer>
 )
 

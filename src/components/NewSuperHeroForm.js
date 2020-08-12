@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { getSuperHeroes } from './selectors';
-import { addSuperHeroRequest } from './thunks';
+import { getSuperHeroes } from '../selectors';
+import { addSuperHeroRequest } from '../thunks';
 
 const FormContainer = styled.div`
     border-radius: 8px;
