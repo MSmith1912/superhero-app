@@ -51,6 +51,7 @@ const SuperHeroItem = ({ supers, onRemovePressed, onActivePressed }) => {
             Created at:&nbsp;
             {(new Date(supers.createdAt)).toLocaleDateString()}
         </p>
+        <p>Species: {supers.species}</p>
         <p>Powers: {supers.powers}</p>
         <p>Power Level: {supers.powerLevel}</p>
         <ButtonContainer>

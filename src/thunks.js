@@ -33,7 +33,7 @@ export const loadHeroes = () => async (dispatch, getState) => {
 export const addSuperHeroRequest = text => async dispatch => {
     try {
         const body = JSON.stringify({text});
-        const response = await fetch('http://localhost:8080/heroes', {
+        const response = await fetch(`http://localhost:8080/heroes`, {
         headers: {
             'Content-Type': 'application/json',
         },

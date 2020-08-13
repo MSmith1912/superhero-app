@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { getSuperHeroes } from '../selectors';
+import { getAllSupers } from '../selectors';
 import { addSuperHeroRequest } from '../thunks';
 
 const FormContainer = styled.div`
@@ -35,19 +35,33 @@ const NewSuperHeroButton = styled.button`
 
 const NewSuperHeroForm = ({ superHeroes, onCreatePressed }) => {
     const [ name, setName ] = useState('');
+    const [ type, setType ] = useState('');
+    const [ species, setSpecies ] = useState('');
     const [ powers, setPowers ] = useState('');
     const [ powerLevel, setPowerLevel ] = useState('');
+
+    const body = {
+        name,
+        type,
+        species,
+        powers,
+        powerLevel,
+    };
 
     return (
         <FormContainer>
             <NewSuperHeroInput type="text" value={name} onChange={e => setName(e.target.value)} placeholder="type name here"/>
+            <NewSuperHeroInput type="text" value={type} onChange={e => setType(e.target.value)} placeholder="type type here"/>
+            <NewSuperHeroInput type="text" value={species} onChange={e => setSpecies(e.target.value)} placeholder="type species here"/>
             <NewSuperHeroInput type="text" value={powers} onChange={e => setPowers(e.target.value)} placeholder="type powers here"/>
             <NewSuperHeroInput type="text" value={powerLevel} onChange={e => setPowerLevel(e.target.value)} placeholder="type power level here"/>
             <NewSuperHeroButton onClick={() => {
                 const dupName = superHeroes.some(superHero => superHeroes.name === name);
                 if (!dupName) {
-                    onCreatePressed(name, powers, powerLevel);
+                    onCreatePressed(body);
                     setName('');
+                    setType('');
+                    setSpecies('');
                     setPowers('');
                     setPowerLevel('');
                 }
@@ -57,11 +71,11 @@ const NewSuperHeroForm = ({ superHeroes, onCreatePressed }) => {
 };
 
 const mapStateToProps = state => ({
-    superHeroes: getSuperHeroes(state),
+    superHeroes: getAllSupers(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    onCreatePressed: text => dispatch(addSuperHeroRequest(text)),
+    onCreatePressed: body => dispatch(addSuperHeroRequest(body)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewSuperHeroForm);

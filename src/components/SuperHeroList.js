@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import SuperHeroItem from '../components/SuperHeroItem';
 import { getSuperHeroesLoading, getActiveHeroes, getInactiveHeroes, getActiveVillains, getInactiveVillains } from '../selectors';
 import { loadAll, loadHeroes, removeHeroRequest, markHeroAsActiveRequest } from '../thunks';
+import NewSuperHeroForm from './NewSuperHeroForm';
 
 const ListWrapper = styled.div`
     max-width: 700px;
@@ -18,6 +19,7 @@ const SuperHeroList = ({ activeHeroes, inactiveHeroes, activeVillains, inactiveV
         const loadingMessage = <div>Loading SuperHeroes...</div>;
         const content = (
             <ListWrapper>
+                <NewSuperHeroForm />
                 <div className="superhero-list">
                     <h2>Super Hero List</h2>
                     <h3>Active</h3>
