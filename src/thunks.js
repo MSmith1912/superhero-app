@@ -1,4 +1,23 @@
-import { loadHeroesInProgress, loadHeroesSuccess, loadHeroesFailure, createHero, removeHero } from './actions';
+import { createHero, removeHero, markHeroAsActive, 
+        loadHeroesInProgress, loadHeroesSuccess, loadHeroesFailure,
+        loadVillainsInProgress, loadVillainsSuccess, loadVillainsFailure, 
+        loadAllInProgress, loadAllSuccess, loadAllFailure  } from './actions';
+
+
+
+
+
+export const loadAll = () => async (dispatch, getState) => {
+    try {
+        dispatch(loadAllInProgress());
+        const response = await fetch('http://localhost:8080/heroes');
+        const all = await response.json();
+
+        dispatch(loadAllSuccess(all));
+    } catch(err) {
+        dispatch(displayAlert(err));
+    }
+}
 
 export const loadHeroes = () => async (dispatch, getState) => {
     try {
@@ -27,6 +46,18 @@ export const addSuperHeroRequest = text => async dispatch => {
     dispatch(createHero(hero));
     }
     catch(err) {
+        dispatch(displayAlert(err));
+    }
+}
+
+export const markHeroAsActiveRequest = id => async dispatch => {
+    try {
+        const response = await fetch(`http://localhost:8080/heroes/${id}/active`, {
+            method: 'post'
+        });
+        const updatedHero = await response.json();
+        dispatch(markHeroAsActive(updatedHero));
+    } catch(err) {
         dispatch(displayAlert(err));
     }
 }

@@ -51,6 +51,8 @@ const TodoListItem = ({ hero, onRemovePressed, onActivePressed }) => {
             Created at:&nbsp;
             {(new Date(hero.createdAt)).toLocaleDateString()}
         </p>
+        <p>Powers: {hero.powers}</p>
+        <p>Power Level: {hero.powerLevel}</p>
         <ButtonContainer>
             {hero.isActive
                 ? null
