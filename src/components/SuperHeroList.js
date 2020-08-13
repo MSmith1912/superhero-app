@@ -10,7 +10,7 @@ const ListWrapper = styled.div`
     margin: auto;
 `;
 
-const SuperHeroList = ({ activeHeroes, inactiveHeroes, onRemovePressed, onActivePressed, 
+const SuperHeroList = ({ activeHeroes, inactiveHeroes, activeVillains, inactiveVillains, onRemovePressed, onActivePressed, 
                         isLoading, startLoadingSuperHeroes }) => {
                             useEffect(() => {
                                 startLoadingSuperHeroes();
@@ -22,12 +22,14 @@ const SuperHeroList = ({ activeHeroes, inactiveHeroes, onRemovePressed, onActive
                     <h2>Super Hero List</h2>
                     <h3>Active</h3>
                     {activeHeroes.map(hero => <SuperHeroItem
+                        key={hero.id}
                         hero={hero}
                         onRemovePressed={onRemovePressed}
                         onActivePressed={onActivePressed}
                         />)}
                     <h3>Inactive</h3>
                     {inactiveHeroes.map(hero => <SuperHeroItem
+                        key={hero.id}
                         hero={hero}
                         onRemovePressed={onRemovePressed}
                         onActivePressed={onActivePressed}
@@ -38,12 +40,14 @@ const SuperHeroList = ({ activeHeroes, inactiveHeroes, onRemovePressed, onActive
                     <h2>Villian List</h2>
                     <h3>Active</h3>
                         {activeVillains.map(hero => <SuperHeroItem
+                            key={hero.id}
                             hero={hero}
                             onRemovePressed={onRemovePressed}
                             onActivePressed={onActivePressed}
                             />)}
                         <h3>Inactive</h3>
                         {inactiveVillains.map(hero => <SuperHeroItem
+                            key={hero.id}
                             hero={hero}
                             onRemovePressed={onRemovePressed}
                             onActivePressed={onActivePressed}

@@ -4,6 +4,9 @@ import {
     LOAD_HEROES_IN_PROGRESS,
     LOAD_HEROES_SUCCESS,
     LOAD_HEROES_FAILURE,
+    LOAD_ALL_IN_PROGRESS,
+    LOAD_ALL_SUCCESS,
+    LOAD_ALL_FAILURE,
     MARK_HERO_AS_ACTIVE,
 } from './actions';
 
@@ -39,7 +42,7 @@ export const heroes = (state = initialState, action) => {
             data: state.data.filter(hero => hero.id !== heroToRemove.id),
         };
     }
-    case LOAD_HEROES_SUCCESS: {
+    case LOAD_ALL_SUCCESS: {
         const { heroes } = payload;
         return {
             ...state,
@@ -47,12 +50,12 @@ export const heroes = (state = initialState, action) => {
             data: heroes,
         };
     }
-    case LOAD_HEROES_IN_PROGRESS:
+    case LOAD_ALL_IN_PROGRESS:
         return {
             ...state,
             isLoading: true,
         }
-    case LOAD_HEROES_FAILURE:
+    case LOAD_ALL_FAILURE:
         return {
             ...state,
             isLoading: false,

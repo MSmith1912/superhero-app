@@ -4,9 +4,6 @@ import { createHero, removeHero, markHeroAsActive,
         loadAllInProgress, loadAllSuccess, loadAllFailure  } from './actions';
 
 
-
-
-
 export const loadAll = () => async (dispatch, getState) => {
     try {
         dispatch(loadAllInProgress());
@@ -15,6 +12,7 @@ export const loadAll = () => async (dispatch, getState) => {
 
         dispatch(loadAllSuccess(all));
     } catch(err) {
+        dispatch(loadAllFailure())
         dispatch(displayAlert(err));
     }
 }

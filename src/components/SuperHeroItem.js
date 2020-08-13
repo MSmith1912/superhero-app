@@ -42,7 +42,7 @@ const RemoveButton = styled(Button)`
     margin-left: 8px;
 `;
 
-const TodoListItem = ({ hero, onRemovePressed, onActivePressed }) => {
+const SuperHeroItem = ({ hero, onRemovePressed, onActivePressed }) => {
     const Container = hero.isActive ? HeroItemContainer : HeroItemContainerWithWarning;
     return (
     <Container createdAt={hero.createdAt}>
@@ -67,4 +67,4 @@ const TodoListItem = ({ hero, onRemovePressed, onActivePressed }) => {
 );
 }
 
-export default TodoListItem;
+export default SuperHeroItem;
