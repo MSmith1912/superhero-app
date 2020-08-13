@@ -21,16 +21,16 @@ const SuperHeroList = ({ activeHeroes, inactiveHeroes, activeVillains, inactiveV
                 <div className="superhero-list">
                     <h2>Super Hero List</h2>
                     <h3>Active</h3>
-                    {activeHeroes.map(hero => <SuperHeroItem
-                        key={hero.id}
-                        hero={hero}
+                    {activeHeroes.map(supers => <SuperHeroItem
+                        key={supers.id}
+                        supers={supers}
                         onRemovePressed={onRemovePressed}
                         onActivePressed={onActivePressed}
                         />)}
                     <h3>Inactive</h3>
-                    {inactiveHeroes.map(hero => <SuperHeroItem
-                        key={hero.id}
-                        hero={hero}
+                    {inactiveHeroes.map(supers => <SuperHeroItem
+                        key={supers.id}
+                        supers={supers}
                         onRemovePressed={onRemovePressed}
                         onActivePressed={onActivePressed}
                         />)}
@@ -39,16 +39,16 @@ const SuperHeroList = ({ activeHeroes, inactiveHeroes, activeVillains, inactiveV
                 <div className="villian-list">
                     <h2>Villian List</h2>
                     <h3>Active</h3>
-                        {activeVillains.map(hero => <SuperHeroItem
-                            key={hero.id}
-                            hero={hero}
+                        {activeVillains.map(supers => <SuperHeroItem
+                            key={supers.id}
+                            supers={supers}
                             onRemovePressed={onRemovePressed}
                             onActivePressed={onActivePressed}
                             />)}
                         <h3>Inactive</h3>
-                        {inactiveVillains.map(hero => <SuperHeroItem
-                            key={hero.id}
-                            hero={hero}
+                        {inactiveVillains.map(supers => <SuperHeroItem
+                            key={supers.id}
+                            supers={supers}
                             onRemovePressed={onRemovePressed}
                             onActivePressed={onActivePressed}
                             />)}

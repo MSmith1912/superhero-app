@@ -42,25 +42,25 @@ const RemoveButton = styled(Button)`
     margin-left: 8px;
 `;
 
-const SuperHeroItem = ({ hero, onRemovePressed, onActivePressed }) => {
-    const Container = hero.isActive ? HeroItemContainer : HeroItemContainerWithWarning;
+const SuperHeroItem = ({ supers, onRemovePressed, onActivePressed }) => {
+    const Container = supers.isActive ? HeroItemContainer : HeroItemContainerWithWarning;
     return (
-    <Container createdAt={hero.createdAt}>
-        <h3>{hero.text}</h3>
+    <Container createdAt={supers.createdAt}>
+        <h3>{supers.text}</h3>
         <p>
             Created at:&nbsp;
-            {(new Date(hero.createdAt)).toLocaleDateString()}
+            {(new Date(supers.createdAt)).toLocaleDateString()}
         </p>
-        <p>Powers: {hero.powers}</p>
-        <p>Power Level: {hero.powerLevel}</p>
+        <p>Powers: {supers.powers}</p>
+        <p>Power Level: {supers.powerLevel}</p>
         <ButtonContainer>
-            {hero.isActive
+            {supers.isActive
                 ? null
                 : <ActiveButton
-                    onClick={() => onActivePressed(hero.id)}
+                    onClick={() => onActivePressed(supers.id)}
                     className="active-button">Mark As Active</ActiveButton>}
             <RemoveButton
-                onClick={() => onRemovePressed(hero.id)}
+                onClick={() => onRemovePressed(supers.id)}
                 className="remove-button">Remove</RemoveButton>
         </ButtonContainer>
     </Container>
