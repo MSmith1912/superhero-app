@@ -1,7 +1,5 @@
 import { createSelector } from 'reselect';
 
-//export const getSuperHeroes = state => state.heroes.data;
-
 export const getAllSupers = state => state.heroes.data;
 
 export const getSuperHeroesLoading = state => state.heroes.isLoading;

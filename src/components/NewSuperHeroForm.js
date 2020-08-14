@@ -34,32 +34,32 @@ const NewSuperHeroButton = styled.button`
 `;
 
 const NewSuperHeroForm = ({ superHeroes, onCreatePressed }) => {
-    const [ name, setName ] = useState('');
+    const [ text, setText ] = useState('');
     const [ type, setType ] = useState('');
     const [ species, setSpecies ] = useState('');
     const [ powers, setPowers ] = useState('');
     const [ powerLevel, setPowerLevel ] = useState('');
 
     const body = {
-        name,
+        text,
         type,
         species,
         powers,
-        powerLevel,
-    };
+        powerLevel
+    }
 
     return (
         <FormContainer>
-            <NewSuperHeroInput type="text" value={name} onChange={e => setName(e.target.value)} placeholder="type name here"/>
+            <NewSuperHeroInput type="text" value={text} onChange={e => setText(e.target.value)} placeholder="type name here"/>
             <NewSuperHeroInput type="text" value={type} onChange={e => setType(e.target.value)} placeholder="type type here"/>
             <NewSuperHeroInput type="text" value={species} onChange={e => setSpecies(e.target.value)} placeholder="type species here"/>
             <NewSuperHeroInput type="text" value={powers} onChange={e => setPowers(e.target.value)} placeholder="type powers here"/>
             <NewSuperHeroInput type="text" value={powerLevel} onChange={e => setPowerLevel(e.target.value)} placeholder="type power level here"/>
             <NewSuperHeroButton onClick={() => {
-                const dupName = superHeroes.some(superHero => superHeroes.name === name);
+                const dupName = superHeroes.some(superHero => superHeroes.name === text);
                 if (!dupName) {
                     onCreatePressed(body);
-                    setName('');
+                        setText('');
                     setType('');
                     setSpecies('');
                     setPowers('');
